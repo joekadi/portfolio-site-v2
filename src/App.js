@@ -1,14 +1,15 @@
 import Navbar from './components/navbar/navbar';
 import './App.css';
+import {
+  Box,
+} from '@chakra-ui/react';
 
 function App() {
   return (
-    <div className="app">
-      <Navbar/>
-      <div className="sections">
-          <p>*insert sections here*</p>
-      </div>
-    </div>
+    <>
+    <Navbar/>
+    <Box p={4}>Main Content Here</Box>
+    </>
   );
 }
 
