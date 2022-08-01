@@ -1,4 +1,6 @@
 import Navbar from './components/navbar/navbar';
+import About from './components/about';
+
 import './App.css';
 import {
   Box,
@@ -8,6 +10,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    <About/>
     <Box p={4}>Main Content Here</Box>
     </>
   );

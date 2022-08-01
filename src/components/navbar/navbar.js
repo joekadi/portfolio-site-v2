@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   Box,
   Flex,
@@ -19,8 +18,10 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { SiLinkedin, SiTwitter, SiGithub } from 'react-icons/si';
-import {FiMail} from 'react-icons/fi'
-const Links = ['About', 'Projects', 'Articles', 'Contact'];
+import { FiMail } from 'react-icons/fi'
+import { RiContactsLine } from 'react-icons/ri'
+
+const Links = ['About', 'Projects', 'Articles'];
 
 const NavLink = ({ children }) => (
   <Link
@@ -36,11 +37,11 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function Simple() {
+export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+    <Box px={4}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <IconButton
           size={'md'}
@@ -67,30 +68,6 @@ export default function Simple() {
             ))}
           </HStack>
         </HStack>
-        <Flex alignItems={'center'}>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rounded={'full'}
-              variant={'link'}
-              cursor={'pointer'}
-              minW={0}>
-              <Avatar
-                size={'sm'}
-                src={
-                  '/headshot.png'
-                }
-              />
-            </MenuButton>
-            <MenuList>
-              <MenuItem icon={<SiLinkedin />}>LinkedIn</MenuItem>
-              <MenuItem icon={<SiGithub />}>GitHub</MenuItem>
-              <MenuItem icon={<SiTwitter />}>Twitter</MenuItem>
-              <MenuDivider />
-              <MenuItem icon={<FiMail/>}>Contact me</MenuItem>
-            </MenuList>
-          </Menu>
-        </Flex>
       </Flex>
 
       {isOpen ? (
