@@ -12,7 +12,7 @@ import {
     IconButton,
     useDisclosure,
     HStack,
-    VStack
+    Spacer,
 
   } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -37,9 +37,10 @@ export default function About() {
 
     return (
       <Stack minH={'60vh'} direction={{ base: 'column', md: 'row' }}>
+        
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
-            {/*<Box px={4}>
+            <Box px={4} position={'relative'} top={[-6, -5, -20, -20]}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                   <IconButton
                     size={'md'}
@@ -78,7 +79,7 @@ export default function About() {
                   </Box>
                 ) : null} 
             </Box>
-                      */}
+            
             <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
               <Text
                 as={'span'}
@@ -102,7 +103,7 @@ export default function About() {
               </Text>{' '}
             </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
-                As a full-stack engineer and consultant, I take ideas from zero to one. Currently, I'm focused on building serverless applications on AWS for organsations - of all sizes - over at <a href="https://www.infinityworks.com/">Infinity Works, part of Accenture</a>
+                As a full-stack engineer and consultant, I take ideas from zero to one. Currently, I'm focused on digitally transforming organsations - of all sizes - over at <a href="https://www.infinityworks.com/">Infinity Works, part of Accenture</a>
             </Text>
             <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
               <Button
@@ -121,7 +122,7 @@ export default function About() {
         <Flex flex={1} bg='#3C6E71' align={'center'} justify={'center'}>
           <Image
             borderRadius='full'
-            boxSize={[105, 210, 420]}
+            boxSize={[105, 180, 300, 420]}
             src='/bitmoji.png'
             alt='Joe Kadi'
             bg='#D9D9D9'
