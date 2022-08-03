@@ -12,7 +12,7 @@ import {
     IconButton,
     useDisclosure,
     HStack,
-    Spacer,
+    Center,
 
   } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -36,21 +36,23 @@ export default function About() {
       const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
-      <Stack minH={'60vh'} direction={{ base: 'column', md: 'row' }}>
+      <Stack minH={'60vh'} direction={{ base: 'column', lg: 'row' }}>
         
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
-            <Box px={4} position={'relative'} top={[-6, -5, -20, -20]}>
+            <Box px={4} position={'relative'} top={[-8, -12, -27, -42, -45, -55]}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                   <IconButton
                     size={'md'}
                     icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                     aria-label={'Open Menu'}
-                    display={{ md: 'none' }}
+                    display={{ lg: 'none' }}
                     onClick={isOpen ? onClose : onOpen}
+                    position={'relative'}
+                    left={[-7, -12, null, null, null, null]}
                   />
                   <HStack spacing={8} alignItems={'center'}>
-                    <Box>
+                    <Box position={'relative'} right={[-7, -10, 0, 0, 0, 0]}>
                       <Image
                       borderRadius='full'
                       boxSize='35px'
@@ -61,7 +63,7 @@ export default function About() {
                     <HStack
                       as={'nav'}
                       spacing={4}
-                      display={{ base: 'none', md: 'flex' }}>
+                      display={{ base: 'none', lg: 'flex' }}>
                       {Links.map((link) => (
                         <NavLink key={link}>{link}</NavLink>
                       ))}
@@ -70,7 +72,7 @@ export default function About() {
                 </Flex>
 
                 {isOpen ? (
-                  <Box pb={4} display={{ md: 'none' }}>
+                  <Box pb={4} display={{ lg: 'none' }}>
                     <Stack as={'nav'} spacing={4}>
                       {Links.map((link) => (
                         <NavLink key={link}>{link}</NavLink>
@@ -119,14 +121,18 @@ export default function About() {
             </Stack>
           </Stack>
         </Flex>
-        <Flex flex={1} bg='#3C6E71' align={'center'} justify={'center'}>
-          <Image
-            borderRadius='full'
-            boxSize={[105, 180, 300, 420]}
-            src='/bitmoji.png'
-            alt='Joe Kadi'
-            bg='#D9D9D9'
-          />
+        <Flex flex={1} align={'center'} justify={'center'}>
+          <Center bg='#3C6E71' width={'100%'} height={'100%'}>
+            <Image
+              borderRadius='full'
+              boxSize={[100, 180, 240, 300, 420]}
+              src='/bitmoji.png'
+              alt='Joe Kadi'
+              bg='#D9D9D9'
+              zIndex={1}
+              margin={5}
+            />
+          </Center>
         </Flex>
       </Stack>
     );
