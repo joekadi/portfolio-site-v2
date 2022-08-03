@@ -6,82 +6,17 @@ import {
     Stack,
     Text,
     useBreakpointValue,
-    useColorModeValue,
-    Box,
-    Link,
-    IconButton,
-    useDisclosure,
-    HStack,
     Center,
 
   } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-const Links = ['About', 'Projects', 'Articles'];
-
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-    {children}
-  </Link>
-);
 export default function About() {
-      const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
       <Stack minH={'60vh'} direction={{ base: 'column', lg: 'row' }}>
         
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
-            <Box px={4} position={'relative'} top={[-8, -12, -27, -42, -45, -55]}>
-                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                  <IconButton
-                    size={'md'}
-                    icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-                    aria-label={'Open Menu'}
-                    display={{ lg: 'none' }}
-                    onClick={isOpen ? onClose : onOpen}
-                    position={'relative'}
-                    left={[-7, -12, null, null, null, null]}
-                  />
-                  <HStack spacing={8} alignItems={'center'}>
-                    <Box position={'relative'} right={[-7, -10, 0, 0, 0, 0]}>
-                      <Image
-                      borderRadius='full'
-                      boxSize='35px'
-                      src='/favicon.png'
-                      alt='JK'
-                      />
-                    </Box>
-                    <HStack
-                      as={'nav'}
-                      spacing={4}
-                      display={{ base: 'none', lg: 'flex' }}>
-                      {Links.map((link) => (
-                        <NavLink key={link}>{link}</NavLink>
-                      ))}
-                    </HStack>
-                  </HStack>
-                </Flex>
-
-                {isOpen ? (
-                  <Box pb={4} display={{ lg: 'none' }}>
-                    <Stack as={'nav'} spacing={4}>
-                      {Links.map((link) => (
-                        <NavLink key={link}>{link}</NavLink>
-                      ))}
-                    </Stack>
-                  </Box>
-                ) : null} 
-            </Box>
-            
             <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
               <Text
                 as={'span'}
@@ -91,7 +26,7 @@ export default function About() {
                   width: 'full',
                   height: useBreakpointValue({ base: '20%', md: '30%' }),
                   position: 'absolute',
-                  bottom: 1,
+                  bottom: 0,
                   left: 0,
                   bg: '#3C6E71',
                   zIndex: -1,
@@ -104,7 +39,7 @@ export default function About() {
                 I build things with technology.
               </Text>{' '}
             </Heading>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
+            <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.l500'}>
                 As a full-stack engineer and consultant, I take ideas from zero to one. Currently, I'm focused on digitally transforming organsations - of all sizes - over at <a href="https://www.infinityworks.com/">Infinity Works, part of Accenture</a>
             </Text>
             <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>

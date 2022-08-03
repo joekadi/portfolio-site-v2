@@ -1,17 +1,15 @@
 import Navbar from './components/navbar';
 import About from './components/about';
 import ContactForm from './components/contact';
-
+import WorkExperience from './components/workexperience';
 import './App.css';
-import {
-  Box,
-} from '@chakra-ui/react';
 
 function App() {
   return (
     <>
-    {/*<Navbar/>*/}
+    <Navbar/>
     <About/>
+    <WorkExperience/>
     {/*<ContactForm/>*/}
     </>
   );
