@@ -47,7 +47,7 @@ import {
         </chakra.h1>
         <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }} paddingBottom={{ base: 15, md: 19, lg: 35 }}>
           <StatsCard title={'Application Development Specialist'} stat={'Accenture'} helpText={'2021 - Present'}/>
-          <StatsCard title={'Full Stack Engineer'} stat={'NHS Digital'} helpText={'2021 - Present'} />
+          <StatsCard title={'Full Stack Consultant (w/ Accenture)'} stat={'NHS Digital'} helpText={'2021 - Present'} />
           <StatsCard title={'Computing Science Tutor'} stat={'University of Glasgow'} helpText={'2020 - 2021'}/>
           <StatsCard title={'Full Stack Engineer'} stat={'Traceall Global'} helpText={'2020'}/>
         </SimpleGrid>
