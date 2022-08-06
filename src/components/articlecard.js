@@ -4,13 +4,29 @@ import {
   Heading,
   Text,
   Stack,
-  Avatar,
+  Spacer,
   useColorModeValue,
-  Image
+  Image,
+  HStack,
+  Tag
 } from '@chakra-ui/react';
 
+const BlogTags = (props) => {
+  return (
+    <HStack spacing={2} marginTop={props.marginTop}>
+      {props.tags.map((tag) => {
+        return (
+          <Tag size={'md'} variant="solid" bg={'#30595c'} color={'white'} key={tag} >
+            {tag}
+          </Tag>
+        );
+      })}
+    </HStack>
+  );
+};
+
 export default function ArticleCard(props) {
-  const {image, title, description, date, length} = props;
+  const {image, title, date, length, tags} = props;
   return (
     <Center py={6}>
       <Box
@@ -20,10 +36,13 @@ export default function ArticleCard(props) {
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'md'}
-        p={6}
+        pt={6}
+        pr={6}
+        pl={6}
+        pb={4}
         overflow={'hidden'}>
         <Box
-          //h={'210px'}
+          h={'210px'}
           bg={'gray.100'}
           mt={-6}
           mx={-6}
@@ -34,37 +53,22 @@ export default function ArticleCard(props) {
               image
             }
             layout={'fill'}
+            height={'100%'}
+            
           />
         </Box>
-        <Stack>
-          <Text
-            color={'#30595c'}
-            textTransform={'uppercase'}
-            fontWeight={800}
-            fontSize={'sm'}
-            letterSpacing={1.1}>
-            Blog
-          </Text>
+        <Stack >
+          <BlogTags tags={tags} />
           <Heading
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
-            fontFamily={'body'}>
+            fontFamily={'body'}
+            fontWeight={'medium'}
+            >
            {title}
           </Heading>
-          <Text color={'gray.500'}>
-            {description}
-          </Text>
-        </Stack>
-        <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
-          <Avatar
-            src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
-            alt={'Author'}
-          />
-          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={'gray.500'}>{date} · {length}min read</Text>
-          </Stack>
-        </Stack>
+          <Text color={'gray.500'}>{date} · {length}min read</Text>
+        </Stack> 
       </Box>
     </Center>
   );

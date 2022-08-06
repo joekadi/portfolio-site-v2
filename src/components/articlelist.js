@@ -9,7 +9,8 @@ import {
   Button,
   IconButton,
   Show,
-  Hide
+  Hide,
+  chakra
 } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
@@ -37,9 +38,9 @@ export default function ArticleList() {
     const side = useBreakpointValue({ base: '30%', md: '10px' });
 
     const cards = [
-      {'image':'/bias-variance.png', title:'Relationship Between Bias, Variance, Overfitting & Generalisation in ML ', description:'Walking through the tradeoff between bias and variance in machine learning models. Then how this relates to a model overfitting or underfitting a training set.', date:'31 May, 2021', length:'5'},
-      {'image':'/uncertaintycover.png', title:'The Heisenberg Uncertainty Principle', description:'Understanding the ubiquitous nature of uncertainty through The Heisenberg Uncertainty Principle some extra words to test spacing out lah lah alh alh blah lvh  gfg erg erg erg  ', date:'05 Sep 2021', length:'5'},
-      {'image':'/bowlingscorecardbig.png', title:'Solving The Bowling Game Kata In Vanilla Javascript', description:'Stepping through a Test Driven Development solution for The Bowling Game Kata which was created by Uncle Bob and is a popular exercise for a paired programming style interview. ', date:'5 Sep 2021', length:'5'},
+      {'image':'/bias-variance.png', title:'Bias, Variance, Overfitting & Generalisation in Machine Learning', date:'31 May, 2021', length:'5', tags:['Engineering', 'Machine Learning']},
+      {'image':'/uncertaintycover.png', title:"The Ubiquitous Nature Of Uncertainty Through Heisenberg's Principle", date:'08 Jun 2021', length:'7', tags:['Science', 'Uncertainty']},
+      {'image':'/bowlingscorecardbig.png', title:"Walking Through Uncle Bob's Bowling Game Kata In Vanilla Javascript", date:'30 Jun 2021', length:'5', tags:['Engineering', 'Web Dev'] },
     ];
 
     return (
@@ -48,7 +49,7 @@ export default function ArticleList() {
         <Box bg={'white'}>
           <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
             <Stack spacing={2} align={'center'}>
-              <Heading>Some Writings</Heading>
+              <Heading fontSize={'4xl'}>Some Writings</Heading>
               <Spacer/>
               <Button 
                 rounded={'full'} 
@@ -66,9 +67,9 @@ export default function ArticleList() {
                 key={index}
                 image={blog.image}
                 title={blog.title}
-                description={blog.description}
                 date={blog.date}
                 length={blog.length}
+                tags={blog.tags}
               />
             ))}
             </Stack>
@@ -100,7 +101,7 @@ export default function ArticleList() {
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           />
           <Stack spacing={2} align={'center'}>
-            <Heading>Some Writings</Heading>
+            <Heading fontSize={'4xl'}>Some Writings</Heading>
             <Spacer/>
             <Button 
               rounded={'full'} 
@@ -142,9 +143,9 @@ export default function ArticleList() {
                 key={index}
                 image={blog.image}
                 title={blog.title}
-                description={blog.description}
                 date={blog.date}
                 length={blog.length}
+                tags={blog.tags}
               />
             ))}
           </Slider>
